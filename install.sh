@@ -9,7 +9,7 @@ if [[ $TMPDIR == "" ]]; then
 fi
 echo 开始安装
 pkg install x11-repo -y
-pkg install tigervnc aria2 -y
+pkg install tigervnc aria2 jq -y
 echo ===================================
 echo 开始配置 VNCServer
 echo 接下来需要设置 VNCServer 的密码
@@ -21,6 +21,7 @@ do
         break
     fi
     echo 设置有误，需重新设置
+    sleep 1
 done
 set -e
 echo 设置 VNC 访问权限

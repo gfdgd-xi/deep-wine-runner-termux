@@ -13,9 +13,11 @@ Wine 运行器在 Termux 的移植
 
 # 安装
 ```bash
-curl http://termux.gfdgdxi.top/a.sh | bash
+wget http://termux.gfdgdxi.top/a.sh 
+bash a.sh
 # 或者
-curl http://termux.gfdgdxi.top/install.sh | bash
+wget http://termux.gfdgdxi.top/install.sh 
+bash install.sh
 ```
 
 # ©2020～Now gfdgd xi
