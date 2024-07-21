@@ -1,0 +1,49 @@
+#!/data/data/com.termux/files/usr/bin/bash
+set -e
+if [[ ! -d /data/data/com.termux/files ]]; then
+    echo 非 termux,停止运行
+    exit 1
+fi
+if [[ $TMPDIR == "" ]]; then
+    export TMPDIR=/data/data/com.termux/files/usr/tmp
+fi
+echo 开始安装
+pkg install x11-repo -y
+pkg install tigervnc aria2 -y
+echo ===================================
+echo 开始配置 VNCServer
+echo 接下来需要设置 VNCServer 的密码
+set +e
+while [[ 1 ]];
+do
+    vncpasswd
+    if [[ $? == 0 ]]; then
+        break
+    fi
+    echo 设置有误，需重新设置
+done
+set -e
+echo 设置 VNC 访问权限
+echo 1. 只允许本机访问（默认，推荐，较安全）
+echo 2. 允许其它机器访问（不推荐，较不安全）
+echo 请输入编号：
+read result
+if [[ $result == "2" ]]; then
+    mkdir -p $HOME/.config/deepin-wine-runner/
+    touch $HOME/.config/deepin-wine-runner/vnc-public
+fi
+echo ===================================
+jsonData=$(curl http://update.gfdgdxi.top/update.json)
+url=$(echo $jsonData | jq -r '.["Url-termux"][0]')
+version=$(echo $jsonData | jq -r '.["Version"]')
+echo 安装版本：$version
+echo $jsonData | jq -r '.["New"]'
+echo ===================================
+echo 开始安装
+rm -rf $TMPDIR/spark-deepin-wine-runner-installer
+mkdir $TMPDIR/spark-deepin-wine-runner-installer -p
+cd $TMPDIR/spark-deepin-wine-runner-installer
+aria2c -x 16 -s 16 $url
+pkg install ./*.deb -y
+echo '安装完成，如果没有设置 $DISPLAY 变量的情况下打开 Wine 运行器'
+echo '可以在浏览器输入网址 http://localhost:6080/vnc.html 远程访问'
