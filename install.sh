@@ -50,7 +50,13 @@ version=$(echo $jsonData | jq -r '.["Version"]')
 echo 安装版本：$version
 echo $jsonData | jq -r '.["New"]'
 echo ===================================
+echo 提示：如果下载速度过慢，可以在其它地址下载 deb 包手动安装
+echo "    https://sourceforge.net/projects/deep-wine-runner/files/"
+echo "    https://github.com/gfdgd-xi/deep-wine-runner/releases"
+echo "    http://ctfile.gfdgdxi.top/d/31540479-51790577-d0175d?p=2061 (访问密码: 2061)"
+echo ===================================
 echo 开始安装
+
 rm -rf $TMPDIR/spark-deepin-wine-runner-installer
 mkdir $TMPDIR/spark-deepin-wine-runner-installer -p
 cd $TMPDIR/spark-deepin-wine-runner-installer

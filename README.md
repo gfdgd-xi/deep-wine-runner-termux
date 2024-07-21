@@ -10,6 +10,7 @@ Wine 运行器：<a href='https://gitee.com/gfdgd-xi/deep-wine-runner/stargazers
 # 介绍
 Wine 运行器在 Termux 的移植  
 注：因为 termux 不是完整的 Linux 环境，所以体验不会很好，可以使用 proot/chroot 来运行相对完整的 Linux 容器以获得更多的体验  
+推荐使用下面的命令进行安装，也可以使用 deb 进行安装  
 
 # 安装
 ```bash
