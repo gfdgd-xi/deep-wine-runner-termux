@@ -42,6 +42,7 @@ read result
 if [[ $result == "2" ]]; then
     mkdir -p $HOME/.config/deepin-wine-runner/
     touch $HOME/.config/deepin-wine-runner/vnc-public
+    vncPublic=1
 fi
 echo 为了使用体验，需要设置 X11 环境
 echo 1. 使用完整的 xfce4 桌面环境（默认）
@@ -75,3 +76,7 @@ pkg install ./*.deb -y
 echo 'Wine 运行器安装完成，如果没有设置 $DISPLAY 变量的情况下打开 Wine 运行器'
 echo '可以在浏览器输入网址 http://localhost:6080/vnc.html 远程访问'
 echo '或者用 VNC 远程工具输入 localhost:5 远程访问'
+if [[ $vncPublic == 1 ]]; then
+    echo 同时在其它机器浏览器输入 http://本机IP:6080/vnc.html 
+    echo 或者在其它机器的 VNC 远程工具输入 本机IP:5 都可以远程访问
+fi
