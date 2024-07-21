@@ -16,9 +16,11 @@ Wine 运行器在 Termux 的移植
 ```bash
 wget http://termux.gfdgdxi.top/a.sh 
 bash a.sh
+rm a.sh
 # 或者
 wget http://termux.gfdgdxi.top/install.sh 
 bash install.sh
+rm a.sh
 ```
 
 # ©2020～Now gfdgd xi

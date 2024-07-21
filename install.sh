@@ -7,8 +7,18 @@ fi
 if [[ $TMPDIR == "" ]]; then
     export TMPDIR=/data/data/com.termux/files/usr/tmp
 fi
+echo 更新 termux 环境
+pkg upgrade -y
+echo ===================================
 echo 开始安装
 pkg install x11-repo -y
+echo ===================================
+echo 为了提高下载速度，建议换源
+echo 按回车打开源配置工具
+read
+termux-change-repo
+echo ===================================
+echo 继续安装
 pkg install tigervnc aria2 jq -y
 echo ===================================
 echo 开始配置 VNCServer
