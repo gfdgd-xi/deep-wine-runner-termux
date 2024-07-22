@@ -89,7 +89,8 @@ rm -rf $TMPDIR/spark-deepin-wine-runner-installer
 mkdir $TMPDIR/spark-deepin-wine-runner-installer -p
 cd $TMPDIR/spark-deepin-wine-runner-installer
 aria2c -x 16 -s 16 $url
-pkg install ./*.deb wine-stable -y
+# 使用 reinstall 以允许覆盖安装
+pkg reinstall ./*.deb wine-stable -y
 
 echo 'Wine 运行器安装完成，如果没有设置 $DISPLAY 变量的情况下打开 Wine 运行器'
 echo '可以在浏览器输入网址 http://localhost:6080/vnc.html 远程访问'
