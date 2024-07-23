@@ -29,7 +29,7 @@ rm a.sh
 # 或者
 wget http://termux.gfdgdxi.top/install.sh 
 bash install.sh
-rm a.sh
+rm install.sh
 ```
 
 ## deb 包下载地址
