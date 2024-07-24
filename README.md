@@ -23,6 +23,7 @@ Wine 运行器在 Termux 的移植
 
 ## 安装
 ```bash
+pkg install wget
 wget http://termux.gfdgdxi.top/a.sh 
 bash a.sh
 rm a.sh
