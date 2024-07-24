@@ -6,6 +6,7 @@
 
 function ConfigVNC() {
     echo 开始配置 VNCServer
+    pkg install tigervnc -y
     echo 接下来需要设置 VNCServer 的密码
 
     set +e
